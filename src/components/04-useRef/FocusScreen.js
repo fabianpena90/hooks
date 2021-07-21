@@ -1,21 +1,36 @@
-import React, { useRef } from "react";
-import "../../components/02-useEffect/form.css";
+import React, { useRef } from 'react';
+import '../02-useEffect/effects.css';
+
 
 export const FocusScreen = () => {
-  const ref = useRef();
 
-  const handleClick = (e) => {
-    ref.current.select();
-  };
-  return (
-    <div>
-      <h1>Focus Screen</h1>
-      <hr />
+    const inputRef = useRef();
+    // console.log(ref);
 
-      <input ref={ref} className="form-control" placeholder="nombre" />
-      <button onClick={handleClick} className="btn btn-danger mt5">
-        Click here
-      </button>
-    </div>
-  );
-};
+    const handleClick = () => {
+        inputRef.current.select();
+        console.log(inputRef);
+    }
+
+    return (
+        <div>
+            <h1>Focus Screen</h1>
+            <hr />
+
+            <input 
+                ref={ inputRef }
+                className="form-control"
+                placeholder="Su nombre"
+            />
+
+
+            <button 
+                className="btn btn-outline-primary mt-5"
+                onClick={ handleClick }
+            >
+                Focus
+            </button>
+
+        </div>
+    )
+}

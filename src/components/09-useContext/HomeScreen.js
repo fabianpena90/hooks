@@ -1,16 +1,21 @@
-import React, { useContext } from "react";
-import { UserContext } from "./UserContex";
+import React, { useContext } from 'react'
+import { UserContext } from './UserContext';
 
 export const HomeScreen = () => {
-  const { user } = useContext(UserContext);
-  console.log(user);
 
-  return (
-    <div>
-      <h1>HomeScreen</h1>
-      <hr />
+    const { user } = useContext(UserContext);
 
-      <pre>{JSON.stringify(user, null, 3)}</pre>
-    </div>
-  );
-};
+    // console.log( user );
+
+    return (
+        <div>
+            <h1>HomeScreen</h1>
+            <hr />
+
+            <pre>
+                { JSON.stringify( user, null, 3 ) }
+            </pre>
+
+        </div>
+    )
+}

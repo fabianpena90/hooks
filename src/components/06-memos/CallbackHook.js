@@ -1,24 +1,33 @@
-import React, { useCallback, useState } from "react";
-import "../02-useEffect/form.css";
-import { ShowIncrement } from "./ShowIncrement";
+import React, { useState, useCallback, useEffect } from 'react';
+import { ShowIncrement } from './ShowIncrement';
+
+import '../02-useEffect/effects.css';
 
 export const CallbackHook = () => {
-  const [counter, setCounter] = useState(10);
 
-  // const increment = () => {
-  //   setCounter(counter + 1);
-  // };
+    const [counter, setCounter] = useState( 10 );
 
-  const increment = useCallback(() => {
-    setCounter(counter + 1);
-  }, [setCounter]);
+    // const increment = () => {
+    //     setCounter( counter + 1 );
+    // }
 
-  return (
-    <div>
-      <h1>useCallbaclHook: {counter}</h1>
-      <hr />
+    const increment = useCallback( (num) => {
+        setCounter( c => c + num );
+    }, [ setCounter ] );
 
-      <ShowIncrement increment={increment} />
-    </div>
-  );
-};
+    
+    useEffect( () => {
+        // ???
+    }, [increment] )
+
+
+    return (
+        <div>
+            <h1>useCallback Hook:  { counter }  </h1>
+            <hr />
+
+            <ShowIncrement increment={ increment } />
+
+        </div>
+    )
+}

@@ -1,16 +1,25 @@
-import React from "react";
-import { DeleteButton } from "./DeleteButton";
+import React from 'react';
 
-export const TodoListItem = ({ todo, i, handleDelete, handleToggle }) => {
-  return (
-    <li className="list-group-item" key={todo.id}>
-      <p
-        className={`text-center ${todo.done ? "completed" : ""}`}
-        onClick={() => handleToggle(todo.id)}
-      >
-        {i + 1}. {todo.desc}
-      </p>
-      <DeleteButton todo={todo} handleDelete={handleDelete} />
-    </li>
-  );
-};
+export const TodoListItem = ({ todo, index, handleDelete, handleToggle }) => {
+
+
+    return (
+        <li
+            key={ todo.id }
+            className="list-group-item"
+        >  
+            <p 
+                className={ `${ todo.done && 'complete' }` }
+                onClick={ () => handleToggle( todo.id ) }
+            > 
+                { index + 1}. { todo.desc }   
+            </p>
+            <button
+                className="btn btn-danger"
+                onClick={ () => handleDelete( todo.id ) }
+            >
+                Borrar
+            </button>
+        </li>
+    )
+}
